@@ -124,13 +124,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # we whitelist localhost:3000 because that's where frontend will be served
-#CORS_ORIGIN_WHITELIST = (
- #   'localhost:8000/'
-  #  )
-
-def origin_found_in_white_lists(self, origin, url):
-    return (
-        url.netloc in conf.CORS_ORIGIN_WHITELIST or
-        (origin == 'null' and origin in conf.CORS_ORIGIN_WHITELIST) or
-        self.regex_domain_match(origin)
-    )
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8000',
+)
